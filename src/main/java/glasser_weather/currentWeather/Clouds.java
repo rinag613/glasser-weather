@@ -1,4 +1,4 @@
-package glasser_weather;
+package glasser_weather.currentWeather;
 
 public class Clouds {
     private int all;

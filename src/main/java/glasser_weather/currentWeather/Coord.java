@@ -1,4 +1,4 @@
-package glasser_weather;
+package glasser_weather.currentWeather;
 
 public class Coord {
     private double lon;

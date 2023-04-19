@@ -1,4 +1,6 @@
-package glasser_weather;
+package glasser_weather.currentWeather;
+
+import glasser_weather.Main;
 
 import java.util.List;
 

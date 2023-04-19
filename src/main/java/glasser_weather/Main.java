@@ -55,4 +55,6 @@ public class Main {
     public void setHumidity(int input) {
         this.humidity = input;
     }
+
+
 }
