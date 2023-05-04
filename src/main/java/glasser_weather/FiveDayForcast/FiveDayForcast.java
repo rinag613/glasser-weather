@@ -16,8 +16,12 @@ public class FiveDayForcast {
     @Expose
     private String cod;
     @Expose
-    private java.util.List<glasser_weather.FiveDayForcast.List> list;
+    private FiveDayForcast[] list;
     @Expose
     private Double message;
+
+    public FiveDayForcast[] getList(){
+        return list;
+    }
 
 }

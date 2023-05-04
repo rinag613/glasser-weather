@@ -11,6 +11,9 @@ public class Main {
     public double getTemp() {
         return temp;
     }
+    public Main getMain(){
+        return Main;
+    }
 
     public void setTemp(int input) {
         this.temp = input;
