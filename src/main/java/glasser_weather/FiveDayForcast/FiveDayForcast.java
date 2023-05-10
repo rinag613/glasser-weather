@@ -16,12 +16,11 @@ public class FiveDayForcast {
     @Expose
     private String cod;
     @Expose
-    private FiveDayForcast[] list;
-    @Expose
     private Double message;
 
-    public FiveDayForcast[] getList(){
+    ThreeHourForecast list[];
+
+    public ThreeHourForecast[] getList() {
         return list;
     }
-
 }

@@ -1,12 +1,18 @@
 package glasser_weather;
 
 import glasser_weather.FiveDayForcast.FiveDayForcast;
+import  glasser_weather.FiveDayForcast.*;
 
+import javax.inject.Inject;
 import javax.swing.*;
 import java.awt.*;
 
 public class ForecastWeatherView extends JComponent {
     public FiveDayForcast fiveDayForcast;
+    @Inject
+    public ForecastWeatherView(){
+
+    }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -14,15 +20,15 @@ public class ForecastWeatherView extends JComponent {
 
         if (fiveDayForcast != null) {
             for (int i = 1; i < fiveDayForcast.getList().length; i++) {
-                g.drawLine((i-1) * 20,
-                        -(int) (fiveDayForcast.getList()[i-1].getMain().getTemp() * 5),
-                        (i*20),
+                g.drawLine((i - 1) * 20,
+                        -(int) (fiveDayForcast.getList()[i - 1].getMain().getTemp() * 5),
+                        (i * 20),
                         -(int) (fiveDayForcast.getList()[i].getMain().getTemp() * 5));
             }
 
         }
-        }
     }
+
 
 
     public void setFiveDayForecast(FiveDayForcast fiveDayForcast) {

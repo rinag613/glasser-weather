@@ -18,4 +18,5 @@ public class Weather {
     @Expose
     private String main;
 
+
 }

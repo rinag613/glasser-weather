@@ -4,6 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.inject.Inject;
 import javax.swing.*;
 import java.awt.*;
 
@@ -20,27 +21,31 @@ public class ForecastWeatherFrame extends JFrame {
             .build();
     private final WeatherService service = retrofit.create(WeatherService.class);
 
-    public ForecastWeatherFrame () {
+    @Inject
+    public ForecastWeatherFrame (ForecastWeatherView view, ForecastWeatherController controller) {
 
-        view = new ForecastWeatherView();
+        this.view = view;
         JPanel panel = new JPanel(new BorderLayout());
         JPanel panel1 = new JPanel(new BorderLayout());
-        location = new JTextField();
+        location = new JTextField("New York");
+        setSize(900, 900);
+        setTitle("5 Day Forecast");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
         panel1.add(location, BorderLayout.EAST);
+        submitButton = new Button("Submit");
+
         panel1.add(submitButton, BorderLayout.WEST);
         panel.add(panel1,BorderLayout.NORTH);
         panel.add(view,BorderLayout.SOUTH);
 
         setContentPane(panel);
 
-        submitButton = new Button("Submit");
 
-        controller = new ForecastWeatherController(view, service);
-        submitButton.addActionListener(e -> controller.updateWeather(location.getText()));
+    this.controller = controller;
+    submitButton.addActionListener(e -> controller.updateWeather(location.getText()));
 
-        setSize(900, 900);
-        setTitle("5 Day Forecast");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
 }
